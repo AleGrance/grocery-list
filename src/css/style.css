@@ -2,13 +2,12 @@
     width: 800px;
     height: 600px;
     margin: auto;
-    padding: 10px;
     background-color: aquamarine;
 }
 
 .card {
     width: 500px;
-    height: 200px;
+    height: 500px;
     margin: auto;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: center;
@@ -16,8 +15,40 @@
     border-radius: 4px;
 }
 
-.grocery-content {
-    /*visibility: hidden;*/
+.grocery-form {}
+
+.alert {
+    margin: auto;
+    height: 1.25rem;
+    display: grid;
+    align-items: center;
+    text-align: center;
+    font-size: 0.7rem;
+    border-radius: 0.25rem;
+    letter-spacing: var(--spacing);
+    text-transform: capitalize;
+}
+
+.grocery-container {
+    visibility: hidden;
+}
+
+.show-container {
+    visibility: visible;
+}
+
+.itemRow {
+    width: 500px;
+    position: relative;
+    text-align: left;
+    display: flex;
+}
+
+.btn-container {
+    width: 60px;
+    height: 30px;
+    position: absolute;
+    right: 0px;
 }
 
 .success {
