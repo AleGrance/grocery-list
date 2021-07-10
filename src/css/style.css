@@ -4,7 +4,6 @@
     margin: auto;
     padding: 10px;
     background-color: aquamarine;
-    
 }
 
 .card {
@@ -13,5 +12,14 @@
     margin: auto;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: center;
-    background-color: rgb(241, 231, 231)
+    background-color: rgb(241, 231, 231);
+    border-radius: 4px;
+}
+
+.grocery-content {
+    /*visibility: hidden;*/
+}
+
+.success {
+    background-color: rgb(124, 207, 124);
 }
