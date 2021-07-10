@@ -35,6 +35,12 @@ function addItem(e) {
 function showAlert(textContent, type) {
     alert.textContent = textContent;
     alert.classList.add(type);
+
+    setTimeout(function () {
+        alert.classList.remove(type);
+        alert.textContent = "";
+    }, 1000);
+
 }
 
 // Create Item Row with the item values
