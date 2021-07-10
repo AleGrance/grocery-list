@@ -6,11 +6,12 @@ const groceryContainer = document.querySelector(".grocery-container");
 
 const grocery = document.getElementById("itemTitle");
 const groceryList = document.getElementById("grocery-list");
+const clearBtn = document.getElementById("clear-btn");
 
 
 // Add Event Listeners
 form.addEventListener("submit", addItem);
-
+clearBtn.addEventListener("click", clearItems);
 
 
 // Functions
@@ -23,23 +24,19 @@ function addItem(e) {
     const value = grocery.value;
     const id = new Date().getTime().toString();
 
-    console.log(id, value);
+    if (value) {
+        // Call the function that creates the itemRow
+        createItem(id, value);
 
-    // Call the function that creates the itemRow
-    createItem(id, value);
+        // Display alert
+        showAlert("Agregado!", "success");
 
-    showAlert("Agregado!", "success");
-}
+        // Set back to default
+        setBackToDefault();
+    } else {
+        showAlert("Campo vacio!", "danger");
+    }
 
-// Show alert
-function showAlert(textContent, type) {
-    alert.textContent = textContent;
-    alert.classList.add(type);
-
-    setTimeout(function () {
-        alert.classList.remove(type);
-        alert.textContent = "";
-    }, 1000);
 
 }
 
@@ -63,5 +60,54 @@ function createItem(id, value) {
     // Add the element created to the Grocery list DOM
     groceryList.appendChild(element);
 
+    // Show the grocery container
     groceryContainer.classList.add("show-container");
+}
+
+// Delete Item
+function deleteItem(id) {
+
+}
+
+// Edit Item
+function editItem(id, value) {
+
+}
+
+// Clear the list of items
+function clearItems() {
+    const items = document.querySelectorAll(".itemRow");
+    console.log(items);
+
+    if (items.length > 0) {
+        items.forEach(function (item) {
+            groceryList.removeChild(item);
+        });
+    }
+
+    // Hide the grocery container
+    groceryContainer.classList.remove("show-container");
+
+    // Display alert
+    showAlert("Lista vacia!", "danger");
+
+    // Set back to default
+    setBackToDefault();
+}
+
+// Set back to default - Function
+function setBackToDefault() {
+    grocery.value = "";
+}
+
+// Show alert - Function
+function showAlert(textContent, type) {
+    alert.textContent = textContent;
+    alert.classList.add(type);
+
+    setTimeout(function () {
+        alert.classList.remove(type);
+        alert.textContent = "";
+    }, 1000);
+
 }

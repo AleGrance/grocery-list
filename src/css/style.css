@@ -54,3 +54,7 @@
 .success {
     background-color: rgb(124, 207, 124);
 }
+
+.danger {
+    background-color: rgb(165, 87, 87);
+}
