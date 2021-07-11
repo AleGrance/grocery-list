@@ -13,6 +13,9 @@ const clearBtn = document.getElementById("clear-btn");
 form.addEventListener("submit", addItem);
 clearBtn.addEventListener("click", clearItems);
 
+// Options
+let editFlag = false;
+let editElement;
 
 // Functions
 function addItem(e) {
@@ -24,20 +27,28 @@ function addItem(e) {
     const value = grocery.value;
     const id = new Date().getTime().toString();
 
-    if (value) {
+    if (value && !editFlag) {
         // Call the function that creates the itemRow
         createItem(id, value);
 
         // Display alert
-        showAlert("Agregado!", "success");
+        showAlert("Added!", "success");
+
+        // Set back to default
+        setBackToDefault();
+    } else if (value && editFlag) {
+        editElement.textContent = value;
+        console.log("Editado");
+
+        // Display alert
+        showAlert("Item edited!", "success");
 
         // Set back to default
         setBackToDefault();
     } else {
+        // Display alert
         showAlert("Campo vacio!", "danger");
     }
-
-
 }
 
 // Create Item Row with the item values
@@ -66,7 +77,7 @@ function createItem(id, value) {
 
     // Call the functions
     btnDelete.addEventListener('click', deleteItem);
-    //btnEdit.addEventListener('click', deleteItem(id));
+    btnEdit.addEventListener('click', editItem);
 
     // Show the grocery container
     groceryContainer.classList.add("show-container");
@@ -90,7 +101,20 @@ function deleteItem(e) {
 }
 
 // Edit Item
-function editItem(id, value) {
+function editItem(e) {
+    editFlag = true;
+    const element = e.currentTarget.parentElement.parentElement;
+    const id = element.id;
+
+    console.log("El id es: ", id);
+
+    // set the element target to a editElement variable - is set only the data that wish to edit
+    editElement = e.currentTarget.parentElement.previousElementSibling;
+    console.log(editElement.textContent);
+
+    grocery.value = editElement.textContent;
+
+    submitBtn.textContent = "Edit Item";
 
 }
 
@@ -118,6 +142,8 @@ function clearItems() {
 // Set back to default - Function
 function setBackToDefault() {
     grocery.value = "";
+    submitBtn.textContent = "Add";
+    editFlag = false;
 }
 
 // Show alert - Function
