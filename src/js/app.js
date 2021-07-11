@@ -60,13 +60,33 @@ function createItem(id, value) {
     // Add the element created to the Grocery list DOM
     groceryList.appendChild(element);
 
+    // Create the event listeners for the btns
+    const btnDelete = element.querySelector('.btn-delete');
+    const btnEdit = element.querySelector('.btn-edit');
+
+    // Call the functions
+    btnDelete.addEventListener('click', deleteItem);
+    //btnEdit.addEventListener('click', deleteItem(id));
+
     // Show the grocery container
     groceryContainer.classList.add("show-container");
 }
 
 // Delete Item
-function deleteItem(id) {
+function deleteItem(e) {
+    const element = e.currentTarget.parentElement.parentElement;
+    console.log(element.id);
 
+    // Remove the element
+    groceryList.removeChild(element);
+
+    // Hide container if the list is empty
+    if (groceryList.children.length === 0) {
+        groceryContainer.classList.remove("show-container");
+    }
+
+    showAlert("Item deleted successfully!", "danger");
+    setBackToDefault();
 }
 
 // Edit Item
