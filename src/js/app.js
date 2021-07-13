@@ -16,6 +16,10 @@ clearBtn.addEventListener("click", clearItems);
 // Options
 let editFlag = false;
 let editElement;
+let editId = [];
+
+// When the app starts!
+window.addEventListener("DOMContentLoaded", loadList);
 
 // Functions
 function addItem(e) {
@@ -33,6 +37,12 @@ function addItem(e) {
 
         // Display alert
         showAlert("Added!", "success");
+
+        // Add to localStorage
+        addToLocalStorage(id, value);
+
+        // Show the grocery container
+        groceryContainer.classList.add("show-container");
 
         // Set back to default
         setBackToDefault();
@@ -78,15 +88,12 @@ function createItem(id, value) {
     // Call the functions
     btnDelete.addEventListener('click', deleteItem);
     btnEdit.addEventListener('click', editItem);
-
-    // Show the grocery container
-    groceryContainer.classList.add("show-container");
 }
 
 // Delete Item
 function deleteItem(e) {
     const element = e.currentTarget.parentElement.parentElement;
-    console.log(element.id);
+    //console.log(element.id);
 
     // Remove the element
     groceryList.removeChild(element);
@@ -156,4 +163,44 @@ function showAlert(textContent, type) {
         alert.textContent = "";
     }, 1000);
 
+}
+
+// Add to localStorage
+function addToLocalStorage(id, value) {
+    const item = {
+        id,
+        value
+    };
+
+    const items = getLocalStorage();
+    console.log(items);
+
+    items.push(item);
+    localStorage.setItem("ItemList", JSON.stringify(items));
+}
+
+// Remove from localStorage
+function removeFromLocalStorage() {
+
+}
+
+function getLocalStorage() {
+    // checks if there is some data in localStorage - if not asing an empty array [] if yes asing the existing array [{""}]
+    return items = localStorage.getItem("ItemList") ? JSON.parse(localStorage.getItem("ItemList")) : [];
+}
+
+// Load list
+function loadList() {
+    const items = getLocalStorage();
+    console.log(items);
+    console.log(items.length);
+
+    if (items.length > 0) {
+        items.forEach(function (item) {
+            createItem(item.id, item.value);
+        })
+
+        // Show the grocery container
+        groceryContainer.classList.add("show-container");
+    }
 }
