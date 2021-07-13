@@ -136,6 +136,9 @@ function clearItems() {
         });
     }
 
+    // Remove from localStorage
+    localStorage.removeItem("ItemList");
+
     // Hide the grocery container
     groceryContainer.classList.remove("show-container");
 
@@ -181,7 +184,6 @@ function addToLocalStorage(id, value) {
 
 // Remove from localStorage
 function removeFromLocalStorage() {
-
 }
 
 function getLocalStorage() {
