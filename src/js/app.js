@@ -96,10 +96,12 @@ function createItem(id, value) {
 // Delete Item
 function deleteItem(e) {
     const element = e.currentTarget.parentElement.parentElement;
-    //console.log(element.id);
+    const id = element.id;
 
     // Remove the element
     groceryList.removeChild(element);
+
+    removeFromLocalStorage(id);
 
     // Hide container if the list is empty
     if (groceryList.children.length === 0) {
@@ -204,7 +206,16 @@ function editFromLocalStorage(value) {
 }
 
 // Remove from localStorage
-function removeFromLocalStorage() {
+function removeFromLocalStorage(id) {
+    let items = getLocalStorage();
+
+    items = items.filter(function(item){
+        if (item.id !== id) {
+            return item;
+        }
+    })
+
+    localStorage.setItem("ItemList", JSON.stringify(items));
 
 }
 
