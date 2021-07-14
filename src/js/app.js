@@ -16,7 +16,7 @@ clearBtn.addEventListener("click", clearItems);
 // Options
 let editFlag = false;
 let editElement;
-let editId = [];
+let editId = "";
 
 // When the app starts!
 window.addEventListener("DOMContentLoaded", loadList);
@@ -48,7 +48,10 @@ function addItem(e) {
         setBackToDefault();
     } else if (value && editFlag) {
         editElement.textContent = value;
-        console.log("Editado");
+        console.log("Edited");
+
+        // Edit from localStorage
+        editFromLocalStorage(value);
 
         // Display alert
         showAlert("Item edited!", "success");
@@ -109,11 +112,13 @@ function deleteItem(e) {
 
 // Edit Item
 function editItem(e) {
-    editFlag = true;
     const element = e.currentTarget.parentElement.parentElement;
     const id = element.id;
 
-    console.log("El id es: ", id);
+    editFlag = true;
+    editId = id;
+
+    console.log("The id is: ", editId);
 
     // set the element target to a editElement variable - is set only the data that wish to edit
     editElement = e.currentTarget.parentElement.previousElementSibling;
@@ -182,8 +187,25 @@ function addToLocalStorage(id, value) {
     localStorage.setItem("ItemList", JSON.stringify(items));
 }
 
+// Edit from localStorage
+function editFromLocalStorage(value) {
+    console.log("This is the data form the function: ", editId, value);
+
+    const items = getLocalStorage();
+
+    items.forEach(function(item) {
+        if (item.id === editId) {
+            item.value = value;
+        }
+    })
+
+    localStorage.setItem("ItemList", JSON.stringify(items));
+
+}
+
 // Remove from localStorage
 function removeFromLocalStorage() {
+
 }
 
 function getLocalStorage() {
