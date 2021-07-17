@@ -10,6 +10,7 @@ body {
     border-width: thin;
     border-radius: 5px;
     border-color: rgba(120, 125, 129, 0.418);
+    box-shadow: rgba(46, 240, 95, 0.4) -5px 5px, rgba(46, 240, 88, 0.3) -10px 10px, rgba(46, 240, 78, 0.2) -15px 15px, rgba(46, 240, 149, 0.1) -20px 20px, rgba(46, 240, 78, 0.05) -25px 25px;
 }
 
 .card {
