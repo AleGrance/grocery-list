@@ -6,10 +6,10 @@ body {
     width: 800px;
     height: 600px;
     margin: auto;
-    border: 0.5px solid;
+    border: solid 1px;
+    border-width: thin;
     border-radius: 5px;
-    border-color: aliceblue;
-    background-color: rgba(192, 203, 210, 0.2);
+    border-color: rgba(120, 125, 129, 0.418);
 }
 
 .card {
