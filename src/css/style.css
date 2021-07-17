@@ -22,7 +22,7 @@ article {
 
 .card {
     width: 500px;
-    height: 500px;
+    height: 550px;
     margin: auto;
     text-align: center;
 }
@@ -39,12 +39,26 @@ article {
     text-transform: capitalize;
 }
 
+.grocery-form {
+    width: 500px;
+    height: 200px;
+}
+
 .grocery-container {
+    width: 500px;
+    height: 350px;
     visibility: hidden;
 }
 
 .show-container {
     visibility: visible;
+}
+
+#grocery-list {
+    width: 500px;
+    height: 325px;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 .itemRow {
