@@ -2,11 +2,27 @@ body {
     background-color: #25292C;
 }
 
-h4,
-article {
-    color: #D0D3D4;
+h3 {
+    color: #e7ebec;
+    font-family: 'Amatic SC', cursive;
+    font-size: 300%;
+    margin: auto;
+}
+
+article,
+input {
+    color: #e7ebec;
     font-family: 'Amatic SC', cursive;
     font-size: xx-large;
+}
+
+input[type="text"] {
+    padding: 12px 20px;
+    border: solid 1px;
+    border-width: thin;
+    border-radius: 5px;
+    background-color: #54606985;
+    outline: none;
 }
 
 .content {
@@ -41,12 +57,12 @@ article {
 
 .grocery-form {
     width: 500px;
-    height: 200px;
+    height: 150px;
 }
 
 .grocery-container {
     width: 500px;
-    height: 350px;
+    height: 400px;
     visibility: hidden;
 }
 
@@ -56,7 +72,7 @@ article {
 
 #grocery-list {
     width: 500px;
-    height: 325px;
+    height: 375px;
     overflow-x: hidden;
     overflow-y: scroll;
 }
