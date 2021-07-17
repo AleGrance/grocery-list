@@ -9,6 +9,32 @@ h3 {
     margin: auto;
 }
 
+.elinput {
+    padding-left: 150px;
+    display: flex;
+}
+
+button {
+    background: none;
+    /* Green */
+    border: none;
+    color: #e7ebec;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.submit-btn {
+    width: 100px;
+    height: 50px;
+    background-color: #4d5358d5;
+    border-radius: 4px;
+    margin-left: 3px;
+}
+
+.submit-btn,
+#clear-btn,
 article,
 input {
     color: #e7ebec;
@@ -17,7 +43,6 @@ input {
 }
 
 input[type="text"] {
-    padding: 12px 20px;
     border: solid 1px;
     border-width: thin;
     border-radius: 5px;
@@ -74,7 +99,7 @@ input[type="text"] {
     width: 500px;
     height: 375px;
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .itemRow {
@@ -88,7 +113,7 @@ input[type="text"] {
     width: 60px;
     height: 30px;
     position: absolute;
-    right: 0px;
+    right: 8px;
 }
 
 .success {
@@ -97,4 +122,22 @@ input[type="text"] {
 
 .danger {
     background-color: rgb(165, 87, 87);
+}
+
+/* Scrollbar */
+/* width */
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(46, 240, 88, 0.3);
+    border-radius: 10px;
 }
