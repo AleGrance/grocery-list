@@ -129,17 +129,27 @@ input[type="text"] {
     margin-top: 8px;
 }
 
-/* Clear btn */
+/* Clear btn - Btn delete - Btn edit */
 
+.btn-delete,
+.btn-edit,
 #clear-btn {
     cursor: pointer;
     transition: 1s;
 }
 
+.btn-delete:hover,
 #clear-btn:hover {
     color: #af2c27b6;
     transition: 1s;
 }
+
+.btn-edit:hover {
+    color: rgba(46, 240, 88, 0.589);
+    transition: 1s;
+}
+
+/* Alert styles */
 
 .success {
     background-color: rgba(0, 255, 0, 0.562);
