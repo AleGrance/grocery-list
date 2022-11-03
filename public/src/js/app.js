@@ -36,7 +36,7 @@ function addItem(e) {
         createItem(id, value);
 
         // Display alert
-        showAlert("Added!", "success");
+        showAlert("Agregado!", "success");
 
         // Add to localStorage
         addToLocalStorage(id, value);
@@ -54,7 +54,7 @@ function addItem(e) {
         editFromLocalStorage(value);
 
         // Display alert
-        showAlert("Item edited!", "success");
+        showAlert("Item editado!", "success");
 
         // Set back to default
         setBackToDefault();
@@ -108,7 +108,7 @@ function deleteItem(e) {
         groceryContainer.classList.remove("show-container");
     }
 
-    showAlert("Item deleted successfully!", "danger");
+    showAlert("Item eliminado!", "danger");
     setBackToDefault();
 }
 
@@ -128,7 +128,7 @@ function editItem(e) {
 
     grocery.value = editElement.textContent;
 
-    submitBtn.textContent = "Edit Item";
+    submitBtn.textContent = "Editar";
 
 }
 
@@ -159,7 +159,7 @@ function clearItems() {
 // Set back to default - Function
 function setBackToDefault() {
     grocery.value = "";
-    submitBtn.textContent = "Add";
+    submitBtn.textContent = "Agregar";
     editFlag = false;
 }
 
