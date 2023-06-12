@@ -75,10 +75,11 @@ function createItem(id, value) {
 
     // Add elements to the element
     element.innerHTML = `
-    <article>${value}</article>
+    <article id="art-${value}">${value}</article>
     <div class="btn-container">
-        <button class="btn-delete" type="button"><i class="fa fa-trash"></i></button>
+        <input id="${value}" type="checkbox" onclick="lineaEncima(id)">
         <button class="btn-edit" type="button"><i class="fa fa-edit"></i></button>
+        <button class="btn-delete" type="button"><i class="fa fa-trash"></i></button>
     </div>
     `
     // Add the element created to the Grocery list DOM
@@ -110,6 +111,26 @@ function deleteItem(e) {
 
     showAlert("Item eliminado!", "danger");
     setBackToDefault();
+}
+
+// Tachar texto al marcar el checkbox
+function lineaEncima(id) {
+    checkBoxID = id;
+    checkBoxMarcado = document.getElementById(checkBoxID);
+
+    // Si el checkbox esta marcado se tacha el texto
+    if (checkBoxMarcado.checked === true) {
+        textoID = "art-" + id;
+
+        let textoAtachar = document.getElementById(textoID);
+        textoAtachar.style.textDecoration = ' line-through';
+    } else {
+        textoID = "art-" + id;
+
+        let textoAtachar = document.getElementById(textoID);
+        textoAtachar.style.textDecoration = 'none';
+    }
+
 }
 
 // Edit Item
@@ -195,7 +216,7 @@ function editFromLocalStorage(value) {
 
     const items = getLocalStorage();
 
-    items.forEach(function(item) {
+    items.forEach(function (item) {
         if (item.id === editId) {
             item.value = value;
         }
@@ -209,7 +230,7 @@ function editFromLocalStorage(value) {
 function removeFromLocalStorage(id) {
     let items = getLocalStorage();
 
-    items = items.filter(function(item){
+    items = items.filter(function (item) {
         if (item.id !== id) {
             return item;
         }
